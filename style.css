@@ -1,0 +1,42 @@
+.main {
+    margin: 0 auto;
+    /* width: 35%; */
+    /* background: #FFD39B; */
+    /* color: #8B7355; */
+    padding-top: 2%;
+}
+
+h1 {
+    text-align: center;
+}
+body {
+    background: #BDDF7D;
+    font-family: 'Helvetica light';
+}
+.items {
+    margin-left: 2%;
+    margin-bottom: 2%;
+    font-size: medium;
+}
+.buttons {
+    float: right;
+    margin-right: 2%;
+}
+.remove-buttons {
+    float: right;
+    margin-right: 2%;
+}
+
+.signature {
+    margin: 0 auto;
+    width: 35%;
+    text-align: center;
+}
+
+#add-item {
+    width: 96%;
+    font-size: 20px;
+    padding: 2%;
+    font-family: 'Helvetica light', serif;
+    margin: 0 2% 2%;
+}
