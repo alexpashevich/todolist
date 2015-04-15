@@ -8,6 +8,7 @@ $(function() {
         $('.list').append(a);
         $('#add-item').val('');
         $('#remove-all').show();
+        $('#mark-all').show();
         return false;
     });
 });
@@ -18,7 +19,8 @@ $(document).on('click', '#remove-all', function() {
         $(list[i]).remove();
     }
     if ($('.div-items').length == 0) {
-        $('#remove-all').hide();        
+        $('#remove-all').hide();
+        $('#mark-all').hide();
     }
 });
 
@@ -34,11 +36,12 @@ $(document).on('click', '.remove-buttons', function() {
     var removing = $($(this).parent());
     removing.remove();
     if ($('.div-items').length == 0) {
-        $('#remove-all').hide();        
+        $('#remove-all').hide();
+        $('#mark-all').hide();
     }
 });
 
-$(document).on('change', '#mark-box', function() {
+$(document).on('change', '#mark-all-box', function() {
     if ($(this).is(':checked') == true) {
         $('.items').prop('checked', true);
     } else {
@@ -47,13 +50,13 @@ $(document).on('change', '#mark-box', function() {
 });
 $(document).on('change', '.items', function() {
     if ($(this).is(':checked') == false) {
-        if ($('#mark-box').is(':checked') == true) {
-            $('#mark-box').prop('checked', false);
+        if ($('#mark-all-box').is(':checked') == true) {
+            $('#mark-all-box').prop('checked', false);
         }
     }
     if ($(this).is(':checked') == true) {
         if ($('.items:not(:checked)').length == 0) {
-            $('#mark-box').prop('checked', true);
+            $('#mark-all-box').prop('checked', true);
         }
     }
 });

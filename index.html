@@ -12,12 +12,14 @@
     <h1>ToDo</h1>
     <form>
         <input id="add-item" type="text" placeholder="Type here..."/>
-        <input type="checkbox" id="mark-box"><label for="mark-box">Mark all as complete</label>
-        <input class="buttons" type="submit" value="add"/>
+        <span id="mark-all" hidden="true">
+            <input type="checkbox" id="mark-all-box"/>Mark all as complete
+        </span>
+        <input class="buttons" type="submit" value="add" hidden="true"/>
     </form>
     <div class="list"></div>
-    
-    <input id="remove-all" type="button" class="buttons" hidden="true" value ="clear all completed"/>
+
+    <input id="remove-all" type="button" class="buttons" hidden="true" value="clear all completed"/>
 </div>
 <p></p>
 <div class="signature">created by alexpashevich</div>
