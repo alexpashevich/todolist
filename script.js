@@ -1,12 +1,12 @@
 $(function() {
     $('form').submit(function() {
-        var new_text = $('#add-item:text').val();
-        var a = $("<div class='div-items'>");
-        a.append($("<input class='items' type='checkbox'>"));
+        var new_text = $('#add-item').val();
+        var a = $("<div class='div-items'></div>");
+        a.append($("<input class='items' type='checkbox'/>"));
         a.append($("<span class='span-items' contenteditable=true>").text(new_text));
-        a.append($("<input type='reset' class='remove-buttons' class='buttons' hidden=true value ='X'>"));
+        a.append($("<input type='reset' class='remove-buttons' class='buttons' hidden='true' value ='X'>"));
         $('.list').append(a);
-        $('#add-item:text').val('');
+        $('#add-item').val('');
         $('#remove-all').show();
         return false;
     });
@@ -14,7 +14,7 @@ $(function() {
 
 $(document).on('click', '#remove-all', function() {
     var list = $($('.items:checked').parent());
-    for (var i = 0; i < list.length; i++) {
+    for (var i = 0; i < list.length; ++i) {
         $(list[i]).remove();
     }
     if ($('.div-items').length == 0) {
@@ -45,7 +45,18 @@ $(document).on('change', '#mark-box', function() {
         $('.items').prop('checked', false);
     }
 });
-
+$(document).on('change', '.items', function() {
+    if ($(this).is(':checked') == false) {
+        if ($('#mark-box').is(':checked') == true) {
+            $('#mark-box').prop('checked', false);
+        }
+    }
+    if ($(this).is(':checked') == true) {
+        if ($('.items:not(:checked)').length == 0) {
+            $('#mark-box').prop('checked', true);
+        }
+    }
+});
 
 
 

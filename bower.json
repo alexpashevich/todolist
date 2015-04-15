@@ -1,0 +1,19 @@
+{
+  "name": "todolist",
+  "version": "0.0.0",
+  "homepage": "https://github.com/alexpashevich/todolist",
+  "authors": [
+    "alexpashevich <alexpashevich@github.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3"
+  }
+}
