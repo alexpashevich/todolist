@@ -1,0 +1,24 @@
+{
+  "name": "todolist",
+  "version": "0.0.0",
+  "description": "My first todolist",
+  "main": "index.html",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-less": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexpashevich/todolist.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexpashevich/todolist/issues"
+  },
+  "homepage": "https://github.com/alexpashevich/todolist"
+}
