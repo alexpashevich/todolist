@@ -2,7 +2,7 @@ module.exports = function(grunt) {
     'use strict';
 
     var lessSources = [
-        'style.less'
+        'src/less/style.less'
     ];
 
     // Project configuration.
@@ -11,7 +11,7 @@ module.exports = function(grunt) {
         watch: {
             css: {
                 files: [
-                    '**/*.less'
+                    'src/less/*.less'
                 ],
                 tasks: ['less']
             },
@@ -19,23 +19,7 @@ module.exports = function(grunt) {
                 files: [
                     'js/*.js'
                 ],
-                tasks: ['jshint', 'concat', 'uglify']
-            },
-            jshint: {
-                files: '.jshintrc',
-                tasks: 'jshint'
-            },
-            all: {
-                files: 'Gruntfile.js',
-                tasks: ['build']
-            },
-            livereload: {
-                options: {
-                    livereload: true
-                },
-                files: [
-                    'index.html', 'dist/*'
-                ]
+                tasks: ['concat', 'uglify']
             }
         },
         less: {
@@ -46,22 +30,36 @@ module.exports = function(grunt) {
                     ]
                 },
                 files: {
-                    'style.css': lessSources
+                    'dist/bundle.css': lessSources
                 }
             }
-        }
+        },
+        concat: {
+            dist: {
+                src: [
+                    'bower_components/jquery/dist/jquery.min.js',
+                    'src/js/*.js'
+                ],
+                dest: 'dist/bundle.js'
+            }
+        },
+        uglify: {
+            bundle: {
+                files: {
+                    'dist/bundle.min.js': 'dist/bundle.js'
+                }
+            }
+        },
     });
 
     // Load the Grunt plugins.
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-shell');
 
     // Register the default tasks.
-    grunt.registerTask('build', ['shell:bower', 'less', 'jshint', 'concat', 'uglify']);
-    grunt.registerTask('default', ['build', 'connect:server', 'watch']);
+    grunt.registerTask('build-less', ['less']);
+    grunt.registerTask('build', ['less', 'concat', 'uglify']);
+    grunt.registerTask('default', ['watch'])
 };
